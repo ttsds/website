@@ -11,3 +11,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    li {
+        list-style-type: none;
+    }
+</style>
