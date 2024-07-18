@@ -103,7 +103,7 @@
             Contact (Christoph Minixhofer): firstname.lastname@ed.ac.uk
         </p>
 
-        <img src="edi-logo.png" class="edi" width="200" />
+        <img src="edi-logo.png" class="edi" width="500" />
     </div>
 </section>
 
@@ -118,7 +118,7 @@
     .container {
         text-align: center;
     }
-    ul {
-        list-style-type: none;
+    * {
+        list-style-type: none !important;
     }
 </style>
