@@ -149,7 +149,7 @@
                     </a>
                 </div>
             </div>
-            <!-- <a class="navbar-item" href="/about"> About </a> -->
+            <a class="navbar-item" href="/#about"> About </a>
         </div>
     </div>
 </nav>
