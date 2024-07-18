@@ -16,6 +16,7 @@
 <style>
     .logo {
         width: 500px;
+        mix-blend-mode: lighten;
     }
     .container {
         text-align: center;
