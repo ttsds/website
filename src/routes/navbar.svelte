@@ -80,10 +80,18 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item" href="https://arxiv.org/abs/2407.12707">
+            <a
+                class="navbar-item"
+                href="https://arxiv.org/abs/2407.12707"
+                target="_blank"
+            >
                 Paper
             </a>
-            <a class="navbar-item" href="https://github.com/ttsds/ttsds">
+            <a
+                class="navbar-item"
+                href="https://github.com/ttsds/ttsds"
+                target="_blank"
+            >
                 Code
             </a>
             <a class="navbar-item" href="/leaderboard"> Leaderboard </a>
@@ -108,6 +116,7 @@
                     <a
                         href="https://huggingface.co/spaces/ttsds/benchmark"
                         class="button is-danger"
+                        target="_blank"
                     >
                         <strong>Submit</strong>
                     </a>
@@ -120,18 +129,21 @@
                     <a
                         class="navbar-item"
                         href="https://huggingface.co/spaces/ttsds/benchmark/discussions/1"
+                        target="_blank"
                     >
                         Suggest a Benchmark
                     </a>
                     <a
                         class="navbar-item"
                         href="https://huggingface.co/spaces/ttsds/benchmark/discussions/2"
+                        target="_blank"
                     >
                         Suggest a Model
                     </a>
                     <a
                         class="navbar-item"
                         href="https://huggingface.co/spaces/ttsds/benchmark/discussions/3"
+                        target="_blank"
                     >
                         Suggest a Tag
                     </a>
