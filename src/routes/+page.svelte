@@ -25,7 +25,7 @@
 
         <Card
             title="More Information"
-            content="<h2 id='about'>More information</h2>
+            content="
             <p>
                 More details can be found in our paper <a
                     href='https://arxiv.org/abs/2407.12707'
@@ -117,5 +117,8 @@
     }
     .container {
         text-align: center;
+    }
+    ul {
+        list-style-type: none;
     }
 </style>
