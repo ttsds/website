@@ -118,7 +118,7 @@
     .container {
         text-align: center;
     }
-    * {
+    li {
         list-style-type: none !important;
     }
 </style>
