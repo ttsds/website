@@ -1,124 +1,248 @@
 <script>
-    import Navbar from "./navbar.svelte";
-    import Card from "./card.svelte";
+    import PerformanceTable from "./PerformanceTable.svelte";
+    import Leaderboard from "./Leaderboard.svelte";
+
+    // Calculate days until benchmark update (July 5th, 2025)
+    const updateDate = new Date("2025-07-05");
+    const today = new Date();
+    const daysRemaining = Math.ceil(
+        (updateDate - today) / (1000 * 60 * 60 * 24),
+    );
+
+    // Format date
+    const formattedDate = updateDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
 </script>
 
-<Navbar />
+<!-- <Navbar /> -->
 <section class="section">
-    <div class="container">
-        <img src="logo-dark.png" class="logo" />
-        <h1 class="title">Text to Speech Distribution Score</h1>
-        <p class="subtitle">
-            Benchmarking the performance of TTS systems across various factors.
-        </p>
+    <div class="container main">
+        <section class="container is-max-desktop">
+            <img src="logo_dark_crop.png" class="logo" />
+            <h1 class="title">TTSDS2: Text to Speech Distribution Score</h1>
 
-        <p>
-            As many recent Text-to-Speech (TTS) models have shown, synthetic
-            audio can be close to real human speech. However, traditional
-            evaluation methods for TTS systems need an update to keep pace with
-            these new developments. Our TTSDS benchmark assesses the quality of
-            synthetic speech by considering factors like prosody, speaker
-            identity, and intelligibility. By comparing these factors with both
-            real speech and noise datasets, we can better understand how close
-            synthetic speech is to human speech.
-        </p>
-
-        <Card
-            title="More Information"
-            content="
             <p>
-                More details can be found in our paper <a
-                    href='https://arxiv.org/abs/2407.12707'
-                    ><em>TTSDS -- Text-to-Speech Distribution Score</em></a
-                >.
+                TTSDS2 is a collection of resources for evaluating the
+                performance of text-to-speech (TTS) models.
             </p>
-
-            <h2>Reproducibility</h2>
             <p>
-                To reproduce our results, check out our repository <a
-                    href='https://github.com/ttsds/ttsds'>here</a
-                >.
+                It <a href="#correlation">strongly correlates</a> with human judgement
+                of speech quality for recent TTS models.
             </p>
-
-            <h2>Credits</h2>
-            <p>
-                This benchmark is inspired by <a
-                    href='https://huggingface.co/spaces/TTS-AGI/TTS-Arena'
-                    >TTS Arena</a
-                > which instead focuses on the subjective evaluation of TTS models. Our
-                benchmark would not be possible without the many open-source TTS models
-                on Hugging Face and GitHub. Additionally, our benchmark uses the following
-                datasets:
-            </p>
-            <ul>
-                <li>
-                    <a href='https://keithito.com/LJ-Speech-Dataset/'>LJSpeech</a>
-                </li>
-                <li><a href='https://www.openslr.org/60/'>LibriTTS</a></li>
-                <li>
-                    <a href='https://datashare.ed.ac.uk/handle/10283/2950'>VCTK</a>
-                </li>
-                <li><a href='https://commonvoice.mozilla.org/'>Common Voice</a></li>
-                <li><a href='https://github.com/karolpiczak/ESC-50'>ESC-50</a></li>
-            </ul>
-            <p>And the following metrics/representations/tools:</p>
-            <ul>
-                <li><a href='https://arxiv.org/abs/2006.11477'>Wav2Vec2</a></li>
-                <li><a href='https://arxiv.org/abs/2006.11477'>Hubert</a></li>
-                <li><a href='https://arxiv.org/abs/2110.13900'>WavLM</a></li>
-                <li>
-                    <a
-                        href='https://en.wikipedia.org/wiki/Perceptual_Evaluation_of_Speech_Quality'
-                        >PESQ</a
-                    >
-                </li>
-                <li><a href='https://arxiv.org/abs/2204.05841'>VoiceFixer</a></li>
-                <li>
-                    <a href='https://www.cs.cmu.edu/~robust/Papers/KimSternIS08.pdf'
-                        >WADA SNR</a
-                    >
-                </li>
-                <li><a href='https://arxiv.org/abs/2212.04356'>Whisper</a></li>
-                <li>
-                    <a href='https://huggingface.co/cdminix/masked_prosody_model'
-                        >Masked Prosody Model</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href='https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder'
-                        >PyWorld</a
-                    >
-                </li>
-                <li><a href='https://arxiv.org/abs/2210.17016'>WeSpeaker</a></li>
-                <li><a href='https://github.com/yistLin/dvector'>D-Vector</a></li>
-            </ul>"
-        />
-
-        <p>
-            Authors: Christoph Minixhofer, Ondřej Klejch, and Peter Bell
             <br />
+            The original TTSDS paper was
+            <a href="https://ieeexplore.ieee.org/abstract/document/10832178"
+                >presented at the IEEE SLT 2024 conference</a
+            >.
+            <br />
+            TTSDS2, the multi-language and multi-dataset extension of TTSDS, is currently
+            under review.
+            <!-- available on
+            <a href="TBD">arXiv</a>. -->
+            <br />
+            <br />
+        </section>
+
+        <section class="container is-max-desktop">
+            <div class="columns">
+                <div class="column">
+                    <a href="#leaderboard" class="button is-large is-danger"
+                        >Leaderboard</a
+                    >
+                    <p>
+                        A leaderboard of state-of-the-art TTS models and their
+                        TTSDS2 scores.
+                    </p>
+                </div>
+                <div class="column">
+                    <a href="#dataset" class="button is-large">Datasets</a>
+                    <p>Datasets for TTS evaluation and MOS prediction.</p>
+                </div>
+                <div class="column">
+                    <a href="#run-online" class="button is-large">Systems</a>
+                    <p>A collection of the evaluated TTS models.</p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <p>
+                You can also <a
+                    href="https://github.com/TTSDS2/TTSDS2?tab=readme-ov-file#usage"
+                    class="button inline"
+                    ><img src="github.png" class="github" />use TTSDS2 locally</a
+                >
+                or
+                <a
+                    href="https://huggingface.co/spaces/TTSDS2/README/discussions/1"
+                    class="button inline"
+                    ><img src="huggingface.png" class="github" />request a model
+                    evaluation</a
+                >
+            </p>
+            <br />
+        </section>
+
+        <section class="container is-widescreen" id="leaderboard">
+            <section
+                class="hero is-fullheight is-light has-background-link-dark has-text-light"
+            >
+                <div class="hero-head">
+                    <p class="title is-2 has-text-light is-centered">
+                        TTSDS2 Leaderboard
+                    </p>
+                    <p class="subtitle has-text-light is-centered">Q4 2024</p>
+                    <Leaderboard />
+                </div>
+            </section>
+        </section>
+
+        <section class="container is-max-desktop">
+            <br />
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Replicate Runs</p>
+                        <p class="title">12,654</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">TTS Systems Evaluated</p>
+                        <p class="title">45</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Languages</p>
+                        <p class="title">14</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Hearts & Stars</p>
+                        <p class="title">78</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Next Benchmark Update</p>
+                        <p class="title">{daysRemaining} days</p>
+                    </div>
+                </div>
+            </nav>
+            <br />
+        </section>
+
+        <section class="container is-widescreen" id="correlation">
+            <section
+                class="hero is-fullheight is-light has-background-link-dark has-text-light"
+            >
+                <div class="hero-head">
+                    <p class="title is-2 has-text-light is-centered">
+                        Correlations with MOS
+                    </p>
+                    <section class="container is-widescreen">
+                        <div class="columns">
+                            <div class="column">
+                                <p>
+                                    This table shows the correlation between the
+                                    TTSDS2 score and the mean opinion score
+                                    (MOS), comparative mean opinion score
+                                    (CMOS), and speaker similarity mean opinion
+                                    score (SMOS) for four datasets. <span
+                                        class="has-text-weight-bold has-text-danger"
+                                        >TTSDS2 is the only metric that
+                                        correlates strongly with MOS for all
+                                        datasets.</span
+                                    >
+                                </p>
+                            </div>
+                            <div class="column is-three-quarters">
+                                <PerformanceTable />
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+
+        <br />
+        <p>
+            Authors: Christoph Minixhofer, Ondřej Klejch, and Peter Bell @
             University of Edinburgh.
             <br />
-            Contact (Christoph Minixhofer): firstname.lastname@ed.ac.uk
+            Contact (Christoph Minixhofer): {"{firstname}" +
+                "." +
+                "{lastname}" +
+                "@ed.ac.uk"}
         </p>
+        <br />
 
-        <img src="edi-logo.png" class="edi" width="500" />
+        <img src="edi-logo.png" class="edi" />
     </div>
 </section>
 
 <style>
     .logo {
-        width: 500px;
+        max-width: 14em;
         mix-blend-mode: lighten;
     }
     .edi {
-        background-color: white;
+        width: 15em;
     }
-    .container {
+    .container.is-max-desktop {
         text-align: center;
+        margin: 0 auto;
     }
     li {
         list-style-type: none !important;
+    }
+    .is-centered {
+        text-align: center;
+    }
+    .container.is-widescreen {
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+    }
+    .container .hero {
+        width: 100vw;
+        position: relative;
+        left: calc(-50vw + 50%);
+    }
+    .hero .title {
+        margin-top: 1em;
+    }
+    .hero p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 1em;
+    }
+    @media (max-width: 768px) {
+        .container .hero {
+            padding: 0 3em;
+        }
+        .hero .title {
+            margin-top: 0.5em;
+        }
+        .hero p {
+            top: 0;
+            transform: translateY(0);
+        }
+    }
+    .button.inline {
+        transform: translateY(-0.5em);
+    }
+    .github {
+        width: 1em;
+        margin-right: 0.5em;
+    }
+    .countdown {
+        font-weight: bold;
+        color: #f14668;
     }
 </style>

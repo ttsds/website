@@ -59,9 +59,9 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item no-active" href="/">
-            <img src="logo-dark-notext.png" alt="TTSDS Benchmark" />
+            <img src="logo_dark_crop.png" alt="TTSDS Benchmark" />
             &nbsp;
-            <strong>ttsds</strong>
+            <strong>TTSDS</strong>
         </a>
 
         <a
