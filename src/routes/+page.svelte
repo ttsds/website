@@ -180,9 +180,9 @@
             Authors: Christoph Minixhofer, Ondřej Klejch, and Peter Bell @
             University of Edinburgh.
             <br />
-            Contact (Christoph Minixhofer): {"{firstname}" +
+            Contact (Christoph Minixhofer): {"christoph" +
                 "." +
-                "{lastname}" +
+                "minixhofer" +
                 "@ed.ac.uk"}
         </p>
         <br />
