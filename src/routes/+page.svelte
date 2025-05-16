@@ -58,11 +58,17 @@
                     </p>
                 </div>
                 <div class="column">
-                    <a href="#dataset" class="button is-large">Datasets</a>
+                    <a
+                        href="https://huggingface.co/ttsds"
+                        class="button is-large">Datasets</a
+                    >
                     <p>Datasets for TTS evaluation and MOS prediction.</p>
                 </div>
                 <div class="column">
-                    <a href="#run-online" class="button is-large">Systems</a>
+                    <a
+                        href="https://replicate.com/ttsds"
+                        class="button is-large">Systems</a
+                    >
                     <p>A collection of the evaluated TTS models.</p>
                 </div>
             </div>
