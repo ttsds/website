@@ -76,13 +76,13 @@
             <br />
             <p>
                 You can also <a
-                    href="https://github.com/TTSDS2/TTSDS2?tab=readme-ov-file#usage"
+                    href="https://github.com/ttsds/ttsds"
                     class="button inline"
                     ><img src="github.png" class="github" />use TTSDS2 locally</a
                 >
                 or
                 <a
-                    href="https://huggingface.co/spaces/TTSDS2/README/discussions/1"
+                    href="https://huggingface.co/spaces/ttsds/README/discussions/1"
                     class="button inline"
                     ><img src="huggingface.png" class="github" />request a model
                     evaluation</a
