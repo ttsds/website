@@ -100,6 +100,14 @@
                         TTSDS2 Leaderboard
                     </p>
                     <p class="subtitle has-text-light is-centered">Q4 2024</p>
+                    <a
+                        href="https://huggingface.co/datasets/ttsds/leaderboard_data"
+                        class="button inline"
+                        ><img
+                            src="huggingface.png"
+                            class="github"
+                        />ttsds/leaderboard_data</a
+                    >
                     <Leaderboard />
                 </div>
             </section>
