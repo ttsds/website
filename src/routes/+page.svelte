@@ -143,7 +143,8 @@
                 <div class="level-item has-text-centered">
                     <div>
                         <p class="heading">Next Benchmark Update</p>
-                        <p class="title">{daysRemaining} days</p>
+                        <p class="title">In Progress</p>
+                        <!-- {daysRemaining} days -->
                     </div>
                 </div>
             </nav>
